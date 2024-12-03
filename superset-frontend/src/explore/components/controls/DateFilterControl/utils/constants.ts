@@ -45,6 +45,7 @@ export const FRAME_OPTIONS: SelectOptionType[] = [
 export const COMMON_RANGE_OPTIONS: SelectOptionType[] = [
   { value: 'Last day', label: t('Last day') },
   { value: 'Last week', label: t('Last week') },
+  { value: 'Last 15 day', label: 'Ultima quinzena' },
   { value: 'Last month', label: t('Last month') },
   { value: 'Last quarter', label: t('Last quarter') },
   { value: 'Last year', label: t('Last year') },
@@ -65,6 +66,7 @@ export const CALENDAR_RANGE_VALUES_SET = new Set(
 export const CURRENT_RANGE_OPTIONS: SelectOptionType[] = [
   { value: CurrentDay, label: t('Current day') },
   { value: CurrentWeek, label: t('Current week') },
+  { value: "Current 15 day", label: 'Quinzena atual' },
   { value: CurrentMonth, label: t('Current month') },
   { value: CurrentQuarter, label: t('Current quarter') },
   { value: CurrentYear, label: t('Current year') },
@@ -110,6 +112,7 @@ export const UNTIL_MODE_OPTIONS: SelectOptionType[] =
 
 export const COMMON_RANGE_SET: Set<CommonRangeType> = new Set([
   'Last day',
+  'Last 15 day',
   'Last week',
   'Last month',
   'Last quarter',

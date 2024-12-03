@@ -74,6 +74,7 @@ export type CustomRangeDecodeType = {
 export type CommonRangeType =
   | 'Last day'
   | 'Last week'
+  | 'Last 15 day'
   | 'Last month'
   | 'Last quarter'
   | 'Last year';
