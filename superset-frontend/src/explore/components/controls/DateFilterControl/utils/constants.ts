@@ -33,6 +33,19 @@ import {
   CurrentDay,
 } from 'src/explore/components/controls/DateFilterControl/types';
 
+const QUINZENADO_DO_MES: SelectOptionType[] = [
+  {
+    value: `dateadd(datetrunc(datetime("today"), month), 15, day) : lastday(datetime("today"), month)`,
+    label: 'Primeiro dia do mês',
+  },
+  {
+    value: `dateadd(datetrunc(datetime("today"), month), 30, day) : lastday(datetime("today"), month)`,
+    label: 'Segunda dia do mês',
+  },
+];
+
+const QUINZENADO_DO_MES_VALUE = QUINZENADO_DO_MES.map(({ value }) => value);
+
 export const FRAME_OPTIONS: SelectOptionType[] = [
   { value: 'Common', label: t('Last') },
   { value: 'Calendar', label: t('Previous') },
@@ -45,7 +58,6 @@ export const FRAME_OPTIONS: SelectOptionType[] = [
 export const COMMON_RANGE_OPTIONS: SelectOptionType[] = [
   { value: 'Last day', label: t('Last day') },
   { value: 'Last week', label: t('Last week') },
-  { value: 'Last 15 day', label: 'Ultima quinzena' },
   { value: 'Last month', label: t('Last month') },
   { value: 'Last quarter', label: t('Last quarter') },
   { value: 'Last year', label: t('Last year') },
@@ -66,7 +78,7 @@ export const CALENDAR_RANGE_VALUES_SET = new Set(
 export const CURRENT_RANGE_OPTIONS: SelectOptionType[] = [
   { value: CurrentDay, label: t('Current day') },
   { value: CurrentWeek, label: t('Current week') },
-  { value: "Current 15 day", label: 'Quinzena atual' },
+  ...QUINZENADO_DO_MES,
   { value: CurrentMonth, label: t('Current month') },
   { value: CurrentQuarter, label: t('Current quarter') },
   { value: CurrentYear, label: t('Current year') },
@@ -112,7 +124,6 @@ export const UNTIL_MODE_OPTIONS: SelectOptionType[] =
 
 export const COMMON_RANGE_SET: Set<CommonRangeType> = new Set([
   'Last day',
-  'Last 15 day',
   'Last week',
   'Last month',
   'Last quarter',
@@ -128,6 +139,7 @@ export const CALENDAR_RANGE_SET: Set<CalendarRangeType> = new Set([
 export const CURRENT_CALENDAR_RANGE_SET: Set<CurrentRangeType> = new Set([
   CurrentDay,
   CurrentWeek,
+  ...QUINZENADO_DO_MES_VALUE,
   CurrentMonth,
   CurrentQuarter,
   CurrentYear,

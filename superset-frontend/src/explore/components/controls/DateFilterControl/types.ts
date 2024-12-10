@@ -72,6 +72,7 @@ export type CustomRangeDecodeType = {
 };
 
 export type CommonRangeType =
+  | string
   | 'Last day'
   | 'Last week'
   | 'Last 15 day'
@@ -93,6 +94,7 @@ export const CurrentMonth = 'Current month';
 export const CurrentYear = 'Current year';
 export const CurrentQuarter = 'Current quarter';
 export type CurrentRangeType =
+  | string
   | typeof CurrentDay
   | typeof CurrentWeek
   | typeof CurrentMonth
