@@ -1685,6 +1685,8 @@
       "Find": [""],
       "Finish": [""],
       "First": [""],
+      "First fortnight of the month": ["First fortnight of the month"],
+      "Second fortnight of the month": ["Second fortnight of the month"],
       "Fix the trend line to the full time range specified in case filtered results do not include the start or end dates": [
         ""
       ],

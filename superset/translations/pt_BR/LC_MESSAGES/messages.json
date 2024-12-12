@@ -2102,6 +2102,8 @@
       ],
       "Finish": ["Finalizar"],
       "First": ["Primeiro"],
+      "First fortnight of the month": ["Primeira quinzena do mês"],
+      "Second fortnight of the month": ["Segunda quinzena do mês"],
       "Fix the trend line to the full time range specified in case filtered results do not include the start or end dates": [
         "Corrigir a linha de tendência para o intervalo de tempo completo especificado no caso dos resultados filtrados não incluírem as datas de início ou fim"
       ],

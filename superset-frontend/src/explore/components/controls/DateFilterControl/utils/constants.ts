@@ -27,6 +27,18 @@ import {
   CalendarRangeType,
 } from 'src/explore/components/controls/DateFilterControl/types';
 
+const QUINZENADO_DO_MES: SelectOptionType[] = [
+  {
+    value: `dateadd(datetrunc(datetime("today"), month), 0, day) : dateadd(datetrunc(datetime("today"), month), 14, day)`,
+    label: t('First fortnight of the month'),
+  },
+  {
+    value: `dateadd(datetrunc(datetime("today"), month), 14, day) : lastday(datetime("today"), month)`,
+    label: t('Second fortnight of the month'),
+  },
+];
+const QUINZENADO_DO_MES_VALUE = QUINZENADO_DO_MES.map(({ value }) => value);
+
 export const FRAME_OPTIONS: SelectOptionType[] = [
   { value: 'Common', label: t('Last') },
   { value: 'Calendar', label: t('Previous') },
@@ -48,6 +60,7 @@ export const COMMON_RANGE_VALUES_SET = new Set(
 
 export const CALENDAR_RANGE_OPTIONS: SelectOptionType[] = [
   { value: PreviousCalendarWeek, label: t('previous calendar week') },
+  ...QUINZENADO_DO_MES,
   {
     value: PreviousCalendarMonth,
     label: t('previous calendar month'),
@@ -103,6 +116,7 @@ export const COMMON_RANGE_SET: Set<CommonRangeType> = new Set([
 
 export const CALENDAR_RANGE_SET: Set<CalendarRangeType> = new Set([
   PreviousCalendarWeek,
+  ...QUINZENADO_DO_MES_VALUE,
   PreviousCalendarMonth,
   PreviousCalendarYear,
 ]);
