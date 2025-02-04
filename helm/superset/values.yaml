@@ -43,6 +43,17 @@ serviceAccount:
 # @default -- see `values.yaml`
 bootstrapScript: |
   #!/bin/bash
+  apt-get update && apt-get install -y \
+      python3-dev \
+      default-libmysqlclient-dev \
+      build-essential \
+      pkg-config
+
+  pip install \
+      authlib \
+      psycopg2-binary \
+      mysqlclient
+
   if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
 
 # -- The name of the secret which we will use to generate a superset_config.py file
@@ -88,7 +99,8 @@ extraEnvRaw: []
   #       key: password
 
 # -- Extra environment variables to pass as secrets
-extraSecretEnv: {}
+extraSecretEnv:
+  SUPERSET_SECRET_KEY: "RrsKbCN5OoavOQIpxWI2I0dT5RYFDsbyaWMws9jC57PjP54WZdA1uk7E"
   # MAPBOX_API_KEY: ...
   # # Google API Keys: https://console.cloud.google.com/apis/credentials
   # GOOGLE_KEY: ...
@@ -132,7 +144,7 @@ extraVolumeMounts: []
 # -- A dictionary of overrides to append at the end of superset_config.py - the name does not matter
 # WARNING: the order is not guaranteed
 # Files can be passed as helm --set-file configOverrides.my-override=my-file.py
-configOverrides: {}
+configOverrides:
   # extend_timeout: |
   #    # Extend timeout to allow long running queries.
   #    SUPERSET_WEBSERVER_TIMEOUT = ...
@@ -164,9 +176,9 @@ configOverrides: {}
   #   AUTH_USER_REGISTRATION = True
   #   # The default user self registration role
   #   AUTH_USER_REGISTRATION_ROLE = "Admin"
-  # secret: |
-  #   # Generate your own secret key for encryption. Use `openssl rand -base64 42` to generate a good key
-  #   SECRET_KEY = 'CHANGE_ME_TO_A_COMPLEX_RANDOM_SECRET'
+  secret: |
+    # Generate your own secret key for encryption. Use `openssl rand -base64 42` to generate a good key
+    SECRET_KEY = 'RrsKbCN5OoavOQIpxWI2I0dT5RYFDsbyaWMws9jC57PjP54WZdA1uk7E'
 
 # -- Same as above but the values are files
 configOverridesFiles: {}
@@ -178,14 +190,14 @@ configMountPath: "/app/pythonpath"
 extraConfigMountPath: "/app/configs"
 
 image:
-  repository: ambientelivre/superset-espacolaser
+  repository: ambientelivre/superset-generic
   tag: 4.0.1
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 
 initImage:
-  repository: ambientelivre/superset-espacolaser
+  repository: apache/superset
   tag: dockerize
   pullPolicy: IfNotPresent
 
