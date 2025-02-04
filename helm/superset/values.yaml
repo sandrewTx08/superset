@@ -178,14 +178,14 @@ configMountPath: "/app/pythonpath"
 extraConfigMountPath: "/app/configs"
 
 image:
-  repository: apachesuperset.docker.scarf.sh/apache/superset
-  tag: ~
+  repository: ambientelivre/superset-espacolaser
+  tag: 4.0.1
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 
 initImage:
-  repository: apache/superset
+  repository: ambientelivre/superset-espacolaser
   tag: dockerize
   pullPolicy: IfNotPresent
 

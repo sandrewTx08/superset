@@ -23,6 +23,7 @@
     "ioredis": "^4.28.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
+    "superset-websocket": "file:",
     "uuid": "^9.0.1",
     "winston": "^3.11.0",
     "ws": "^8.16.0"

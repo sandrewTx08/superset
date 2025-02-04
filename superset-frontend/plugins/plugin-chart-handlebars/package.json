@@ -27,6 +27,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@superset-ui/plugin-chart-handlebars": "file:",
     "handlebars": "^4.7.7",
     "just-handlebars-helpers": "^1.0.19"
   },

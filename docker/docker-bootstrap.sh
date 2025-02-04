@@ -18,6 +18,19 @@
 
 set -eo pipefail
 
+# Install system-level dependencies
+apt-get update && apt-get install -y \
+    python3-dev \
+    default-libmysqlclient-dev \
+    build-essential \
+    pkg-config
+
+# Install required Python packages
+pip install \
+    authlib \
+    psycopg2-binary \
+    mysqlclient \
+
 REQUIREMENTS_LOCAL="/app/docker/requirements-local.txt"
 # If Cypress run – overwrite the password for admin and export env variables
 if [ "$CYPRESS_CONFIG" == "true" ]; then

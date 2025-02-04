@@ -2,6 +2,8 @@
   "domain": "superset",
   "locale_data": {
     "superset": {
+      "First fortnight of the month": ["Primeira quinzena do mês"],
+      "Second fortnight of the month": ["Segunda quinzena do mês"],
       "22": [""],
       "": {
         "domain": "superset",

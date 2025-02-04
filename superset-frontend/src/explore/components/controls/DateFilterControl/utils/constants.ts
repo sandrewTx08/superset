@@ -27,6 +27,18 @@ import {
   CalendarRangeType,
 } from 'src/explore/components/controls/DateFilterControl/types';
 
+const FORTNIGHT_MONTH: SelectOptionType[] = [
+  {
+    value: `dateadd(datetrunc(datetime("today"), month), 0, day) : dateadd(datetrunc(datetime("today"), month), 14, day)`,
+    label: t('First fortnight of the month'),
+  },
+  {
+    value: `dateadd(datetrunc(datetime("today"), month), 14, day) : lastday(datetime("today"), month)`,
+    label: t('Second fortnight of the month'),
+  },
+];
+const FORTNIGHT_MONTH_VALUE: any[] = FORTNIGHT_MONTH.map(({ value }) => value);
+
 export const FRAME_OPTIONS: SelectOptionType[] = [
   { value: 'Common', label: t('Last') },
   { value: 'Calendar', label: t('Previous') },
@@ -47,6 +59,7 @@ export const COMMON_RANGE_VALUES_SET = new Set(
 );
 
 export const CALENDAR_RANGE_OPTIONS: SelectOptionType[] = [
+  ...FORTNIGHT_MONTH,
   { value: PreviousCalendarWeek, label: t('previous calendar week') },
   {
     value: PreviousCalendarMonth,
@@ -102,6 +115,7 @@ export const COMMON_RANGE_SET: Set<CommonRangeType> = new Set([
 ]);
 
 export const CALENDAR_RANGE_SET: Set<CalendarRangeType> = new Set([
+  ...FORTNIGHT_MONTH_VALUE,
   PreviousCalendarWeek,
   PreviousCalendarMonth,
   PreviousCalendarYear,

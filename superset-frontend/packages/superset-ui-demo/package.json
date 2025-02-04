@@ -42,6 +42,7 @@
     "@storybook/addons": "^7.6.13",
     "@storybook/react": "^7.6.13",
     "@storybook/types": "^7.6.13",
+    "@superset-ui/demo": "file:",
     "@types/react-loadable": "^5.5.3",
     "antd": "4.10.3",
     "bootstrap": "^3.4.1",
